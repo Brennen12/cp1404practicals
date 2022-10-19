@@ -2,20 +2,20 @@ filename = "wimbledon.csv"
 
 
 def main():
-    lines = load_data()
-    display_winners_count(lines)
-    display_winning_countries(lines)
+    data = load_data()
+    display_winners_count(data)
+    display_winning_countries(data)
 
 
 def load_data():
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()
-        lines = [line.strip() for line in in_file.readlines()]
-    return lines
+        data = [data.strip() for data in in_file.readlines()]
+    return data
 
 
-def display_winners_count(lines):
-    winners = [line.split(",")[2] for line in lines]
+def display_winners_count(data):
+    winners = [record.split(",")[2] for record in data]
 
     winner_to_count = {}
     for winner in winners:
@@ -28,8 +28,8 @@ def display_winners_count(lines):
         print(f"{winner:{max_length}} : {count:>3}")
 
 
-def display_winning_countries(lines):
-    countries = sorted(set([line.split(",")[1] for line in lines]))
+def display_winning_countries(data):
+    countries = sorted(set([record.split(",")[1] for record in data]))
     print(f"\nThese {len(countries)} countries have won Wimbledon:")
     print(", ".join(countries))
 
