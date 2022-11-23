@@ -5,7 +5,7 @@ class SilverServiceTaxi(Taxi):
     flagfall = 4.50
 
     def __init__(self, name, fuel, fanciness: float):
-        """Initialise a Taxi instance, based on parent class Car."""
+        """Initialise a SilverServiceTaxi instance, based on parent class Taxi."""
         super().__init__(name, fuel)
         self.price_per_km = self.price_per_km * fanciness
 
