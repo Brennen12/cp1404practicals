@@ -16,6 +16,7 @@ def main():
             if current_taxi is None:
                 print("You need to choose a taxi before you can drive")
             else:
+                current_taxi.start_fare()
                 distance = int(input("Drive how far? "))
                 current_taxi.drive(distance)
                 trip_cost = current_taxi.get_fare()
